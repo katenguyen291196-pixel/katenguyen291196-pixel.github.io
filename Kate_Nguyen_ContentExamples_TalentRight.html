@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kate Nguyen — Content Examples & Tools Note</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:  #0D2340;
+    --teal:  #00B5B5;
+    --blue:  #A8C8E8;
+    --pink:  #F2C4CE;
+    --soft:  #F9F0F2;
+    --off:   #F5F8FC;
+    --white: #FDFCFB;
+    --ink:   #2C3E50;
+    --mid:   #5A6B7A;
+    --light: #8FA3B1;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--ink);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 2.8rem 3rem 2.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(0,181,181,0.1);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; left: 40%;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(242,196,206,0.08);
+  }
+  .header-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+    position: relative; z-index: 1;
+  }
+  .header-name {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 0.2rem;
+    position: relative; z-index: 1;
+  }
+  .header-title {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.2rem;
+    position: relative; z-index: 1;
+  }
+  .header-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .header-meta span {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .header-meta span strong {
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+  .header-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--teal);
+    margin: 1rem 0;
+  }
+  .header-tagline {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 540px;
+    font-weight: 300;
+    position: relative; z-index: 1;
+  }
+
+  /* ── DOC INTRO STRIP ── */
+  .intro-strip {
+    background: var(--off);
+    border-bottom: 1px solid rgba(0,181,181,0.15);
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .intro-strip-left {
+    font-size: 0.8rem;
+    color: var(--mid);
+    font-weight: 300;
+  }
+  .intro-strip-left strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .intro-strip-right {
+    font-size: 0.72rem;
+    color: var(--light);
+    text-align: right;
+  }
+
+  /* ── BODY ── */
+  .body { padding: 2.4rem 3rem; }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,181,181,0.3), transparent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--teal); }
+  .section-intro {
+    font-size: 0.82rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* ── CONTENT CARDS ── */
+  .content-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(44,62,80,0.07);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(168,200,232,0.2);
+  }
+  .card-header {
+    padding: 1.4rem 1.8rem 1.1rem;
+    border-bottom: 1px solid rgba(168,200,232,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--navy);
+    color: white;
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .card-header-text { flex: 1; }
+  .card-cat {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+  .card-company {
+    font-size: 0.75rem;
+    color: var(--light);
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-self: flex-start;
+  }
+  .tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+  .tag-blue { background: rgba(168,200,232,0.25); color: #3A7CB8; }
+  .tag-pink { background: rgba(242,196,206,0.35); color: #B05070; }
+  .tag-teal { background: rgba(0,181,181,0.12); color: #008080; }
+
+  .card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  /* image side */
+  .card-visual {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-right: 1px solid rgba(168,200,232,0.15);
+  }
+  .card-visual img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .card-visual-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+  .placeholder-emoji { font-size: 2rem; opacity: 0.5; }
+
+  /* content side */
+  .card-content {
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-desc {
+    font-size: 0.8rem;
+    color: var(--mid);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .card-desc strong { color: var(--navy); font-weight: 500; }
+
+  .card-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .metric-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .metric-val {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--teal);
+    min-width: 52px;
+    line-height: 1;
+  }
+  .metric-label {
+    font-size: 0.7rem;
+    color: var(--mid);
+    font-weight: 300;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid rgba(168,200,232,0.2);
+    margin: 2.5rem 0;
+  }
+
+  /* ── TOOLS NOTE ── */
+  .tools-section {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    margin-top: 0.5rem;
+  }
+  .tools-section .section-label { color: rgba(0,181,181,0.8); }
+  .tools-section .section-label::after { background: linear-gradient(90deg, rgba(0,181,181,0.3), transparent); }
+  .tools-section .section-title { color: white; margin-bottom: 1.5rem; }
+  .tools-section .section-title em { color: var(--teal); }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tool-block {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .tool-block-title {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .tool-block p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .tool-block p strong {
+    color: rgba(255,255,255,0.88);
+    font-weight: 500;
+  }
+
+  .tools-note {
+    background: rgba(0,181,181,0.08);
+    border-radius: 10px;
+    border: 1px solid rgba(0,181,181,0.2);
+    padding: 1rem 1.2rem;
+  }
+  .tools-note p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .tools-note p strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--off);
+    border-top: 1px solid rgba(168,200,232,0.2);
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer p { font-size: 0.72rem; color: var(--light); }
+  .footer a { color: var(--teal); text-decoration: none; font-size: 0.72rem; }
+
+  @media print {
+    body { max-width: 100%; }
+    .content-card { break-inside: avoid; }
+    .tools-section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">Application Supplement — Talent Right</div>
+  <div class="header-name">Kate Nguyen</div>
+  <div class="header-title">Marketing Manager · Content, Email & Digital Strategy</div>
+  <div class="header-divider"></div>
+  <div class="header-tagline">Three content examples from my work in recruitment marketing, plus a note on my tools and platform experience — prepared specifically for Talent Right.</div>
+  <div class="header-meta" style="margin-top:1rem;">
+    <span><strong>Email:</strong> katenguyen.291196@gmail.com</span>
+    <span><strong>LinkedIn:</strong> linkedin.com/in/katenguyenn</span>
+    <span><strong>Portfolio:</strong> katenguyen291196-pixel.github.io</span>
+    <span><strong>Location:</strong> Tokyo, Japan · Remote</span>
+  </div>
+</div>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="intro-strip-left">
+    <strong>Document contents:</strong> 3 selected content examples + HubSpot & tools note
+  </div>
+  <div class="intro-strip-right">
+    Prepared for Talent Right · March 2026
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- CONTENT EXAMPLES SECTION -->
+  <div class="section-label">Content Examples</div>
+  <h2 class="section-title">Selected Work — <em>Recruitment Marketing</em></h2>
+  <p class="section-intro">Three examples chosen to show range: a demand-generation publication, an ongoing content programme, and a full website build. All produced hands-on — strategy, copy, design, and distribution.</p>
+
+  <!-- CARD 1: SALARY GUIDE -->
+  <div class="content-card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-header-text">
+        <div class="card-cat">Publication & Campaign · Lead Generation</div>
+        <div class="card-title">Salary Guide for Bilingual Professionals in Japan</div>
+        <div class="card-company">JAC International · 2024–2025</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag tag-blue">Content Strategy</span>
+        <span class="tag tag-pink">Lead Gen</span>
+        <span class="tag tag-teal">B2B + B2C</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-visual">
+        <!-- Replace with: <img src="salary-guide.jpg" alt="Salary Guide Cover"> -->
+        <img src="salary-guide.jpg" alt="Salary Guide for Bilingual Professionals">
+      </div>
+      <div class="card-content">
+        <div class="card-desc">
+          <p>Researched, written, designed, and launched a <strong>Japan-wide salary and talent trends guide</strong> targeting bilingual finance and accounting professionals. I owned the full process — from brief to publication — including market research, writing all copy, coordinating design, and building the promotional campaign across LinkedIn and email.</p>
+          <br>
+          <p>The guide became a <strong>primary lead generation asset</strong> for the recruitment team, driving both candidate registrations and client enquiries. Promoted via a coordinated LinkedIn post series and segmented email campaign.</p>
+        </div>
+        <div class="card-metrics">
+          <div class="metric-row">
+            <span class="metric-val">1,000+</span>
+            <span class="metric-label">downloads in the first week of launch</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val">100+</span>
+            <span class="metric-label">leads generated from associated campaigns</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val">+15%</span>
+            <span class="metric-label">monthly brand impression growth during campaign period</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 2: LINKEDIN NEWSLETTER -->
+  <div class="content-card">
+    <div class="card-header">
+      <div class="card-num">2</div>
+      <div class="card-header-text">
+        <div class="card-cat">LinkedIn Newsletter · Ongoing Content Programme</div>
+        <div class="card-title">Finance Recruitment in Japan — LinkedIn Newsletter</div>
+        <div class="card-company">Trusted Partners G.K. · Jan 2026 – Present</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag tag-blue">Thought Leadership</span>
+        <span class="tag tag-teal">Community Growth</span>
+        <span class="tag tag-pink">B2B + Candidate</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-visual">
+        <img src="linkedin.jpg" alt="LinkedIn Newsletter and Content">
+      </div>
+      <div class="card-content">
+        <div class="card-desc">
+          <p>Launched and manage an ongoing LinkedIn newsletter covering <strong>Finance & Accounting market insights, hiring trends, and career guidance</strong> for professionals in Japan. I write all articles, produce supporting visual assets in Canva, and distribute across both the newsletter and the company LinkedIn page.</p>
+          <br>
+          <p>Content types include: market observation posts, candidate spotlights, finance leadership insights, job announcements, and long-form articles on topics like CFO career paths, salary benchmarks, and Japan market hiring trends — all written to serve both <strong>candidate and client audiences</strong>.</p>
+        </div>
+        <div class="card-metrics">
+          <div class="metric-row">
+            <span class="metric-val">691</span>
+            <span class="metric-label">subscribers reached within 2 months of launch</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val">28%</span>
+            <span class="metric-label">average newsletter open rate</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val">2×</span>
+            <span class="metric-label">articles published per month, cross-posted to website</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 3: WEBSITE -->
+  <div class="content-card">
+    <div class="card-header">
+      <div class="card-num">3</div>
+      <div class="card-header-text">
+        <div class="card-cat">Website Redesign · SEO & Digital Presence</div>
+        <div class="card-title">Trusted Partners Website — Full Redesign & Launch</div>
+        <div class="card-company">Trusted Partners G.K. · 2025–2026</div>
+      </div>
+      <div class="card-tags">
+        <span class="tag tag-teal">WordPress</span>
+        <span class="tag tag-blue">SEO</span>
+        <span class="tag tag-pink">Web Design</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-visual">
+        <img src="website.jpg" alt="Trusted Partners Website">
+      </div>
+      <div class="card-content">
+        <div class="card-desc">
+          <p>Planned, designed, and launched a <strong>full website redesign</strong> for Trusted Partners on WordPress + Elementor Pro. I wrote all SEO-optimised service page copy, structured the information architecture, and managed the build end-to-end — including bilingual (English/Japanese) pages, the Finance Leadership Community section, and a jobs and insights hub.</p>
+          <br>
+          <p>Post-launch I continue to manage the site: publishing new content, updating pages, running on-page SEO improvements, and monitoring performance via Google Analytics and Looker Studio.</p>
+        </div>
+        <div class="card-metrics">
+          <div class="metric-row">
+            <span class="metric-val">41%</span>
+            <span class="metric-label">increase in web traffic post-launch</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val">4.26</span>
+            <span class="metric-label">average pages per visit — strong content engagement</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val">EN/JP</span>
+            <span class="metric-label">fully bilingual site — English and Japanese versions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- TOOLS NOTE -->
+  <div class="tools-section">
+    <div class="section-label">Tools & Platforms Note</div>
+    <h2 class="section-title">HubSpot, CRM, SEO &amp; <em>Digital Tools</em></h2>
+
+    <div class="tools-grid">
+      <div class="tool-block">
+        <div class="tool-block-title">CRM & Email Platforms</div>
+        <p>Hands-on experience with <strong>Mailchimp</strong> for campaign creation, list segmentation, automation workflows, and performance reporting. I manage a <strong>2,000-contact segmented database</strong> at Trusted Partners across separate candidate and client tracks, maintaining a ~30% open rate. Familiar with CRM principles around lifecycle stages, lead scoring, and nurture sequences. <strong>HubSpot:</strong> I have working knowledge of HubSpot's contact management, email campaign, and pipeline tools — I'm actively deepening this and comfortable picking up platform specifics quickly given my CRM foundation.</p>
+      </div>
+      <div class="tool-block">
+        <div class="tool-block-title">SEO & Website</div>
+        <p>Managed <strong>on-page SEO</strong> across Trusted Partners' website — keyword research, meta descriptions, page structure, internal linking, and content optimisation. Built and maintain the site on <strong>WordPress + Elementor Pro</strong>. Monitor performance via <strong>Google Analytics</strong> and <strong>Looker Studio</strong>. Delivered a 41% increase in web traffic post-redesign. Familiar with SEO fundamentals including technical SEO basics, content-led organic growth, and tracking keyword performance.</p>
+      </div>
+      <div class="tool-block">
+        <div class="tool-block-title">Paid Ads</div>
+        <p>Working knowledge of <strong>LinkedIn Campaign Manager</strong> for sponsored content and lead generation campaign setup. Experience planning paid social strategies and briefing campaigns. My current paid ads experience is at the coordination and strategy level rather than deep platform execution — I understand targeting, budget allocation, A/B testing logic, and ROAS measurement, and I'm actively building hands-on execution experience.</p>
+      </div>
+      <div class="tool-block">
+        <div class="tool-block-title">Design & Content Production</div>
+        <p>Proficient in <strong>Canva</strong> (daily use — email assets, LinkedIn graphics, event collateral, reports), <strong>Figma</strong>, <strong>Affinity Designer</strong>, and <strong>Adobe Creative Suite</strong>. Experienced turning raw ideas, recruiter insights, and voice-note briefs into <strong>multi-format content assets</strong> — posts, newsletters, PDFs, landing pages, and campaign emails. This is a core part of how I work: converting business knowledge into market-facing material fast.</p>
+      </div>
+    </div>
+
+    <div class="tools-note">
+      <p><strong>A note on ATS platforms:</strong> My background is in recruitment marketing rather than ATS administration, so my experience is on the marketing and candidate communication side — building nurture sequences, managing candidate-facing email campaigns, and supporting recruiters with content and collateral — rather than deep ATS configuration. I'm familiar with how ATS data flows into marketing segmentation and am quick to adapt to new platforms. I'd be happy to discuss how my CRM and email background maps to Talent Right's specific stack.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Kate Nguyen · Marketing Manager · katenguyen.291196@gmail.com</p>
+  <a href="https://katenguyen291196-pixel.github.io">View full portfolio →</a>
+</div>
+
+</body>
+</html>
